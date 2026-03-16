@@ -1,7 +1,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0a0a0a;--s1:#0f0f0f;--s2:#141414;--b1:#1c1c1c;--b2:#252525;
-  --tx:#ebebeb;--mu:#555;--mu2:#888;--ac:#e8ff00;
+  --tx:#ebebeb;--mu:#ffffff;--mu2:#888888;--ac:#e8ff00;
   --cy:#00c8ff;--tl:#00e5cc;
   --fd:'Bebas Neue',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Syne',sans-serif;
 }
