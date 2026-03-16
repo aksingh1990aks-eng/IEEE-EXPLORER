@@ -1,361 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IEEE MTT-S · RF Learning Hub</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IEEE MTT-S · RF Learning Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-  <!-- ══ CUSTOM CURSOR ════════════════════════════════════════════════════════ -->
-  <div class="cd" id="cursor-dot"></div>
-  <div class="cr" id="cursor-ring"></div>
+<div class="cd" id="cd"></div>
+<div class="cr" id="cr"></div>
 
-  <!-- ══ NAV ══════════════════════════════════════════════════════════════════ -->
-  <nav id="navbar" style="position:fixed;top:0;left:0;right:0;z-index:200;padding:0 1.75rem;height:58px;
-                           display:flex;align-items:center;justify-content:space-between;
-                           background:transparent;border-bottom:1px solid transparent;
-                           transition:background .4s,border-color .4s">
+<nav id="nav">
+  <div style="display:flex;align-items:center;gap:.7rem">
+    <div style="width:28px;height:28px;background:var(--ac);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <span style="font-family:var(--fd);font-size:13px;color:#000">RF</span>
+    </div>
+    <div>
+      <div style="font-family:var(--fm);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;line-height:1.2;color:var(--cy)">IEEE MTT-S</div>
+      <div style="font-family:var(--fm);font-size:7.5px;color:var(--mu);letter-spacing:.12em;text-transform:uppercase">RF Learning Hub</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#modules" class="nav-link">Modules</a>
+    <a href="#videos" class="nav-link">Videos</a>
+    <a href="#tools" class="nav-link">Tools</a>
+    <a href="#modules" class="nav-cta">Start Learning →</a>
+  </div>
+</nav>
 
-    <!-- Logo -->
-    <div style="display:flex;align-items:center;gap:.7rem">
-      <div style="width:28px;height:28px;background:var(--ac);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <span style="font-family:var(--fd);font-size:13px;color:#000">RF</span>
-      </div>
-      <div>
-        <div style="font-family:var(--fm);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;line-height:1.2;color:var(--cy)">IEEE MTT-S</div>
-        <div style="font-family:var(--fm);font-size:7.5px;color:var(--mu);letter-spacing:.12em;text-transform:uppercase">RF Learning Hub</div>
+<section id="home" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:110px;padding-bottom:80px;padding-left:1.75rem;padding-right:1.75rem;border-bottom:1px solid var(--b1);position:relative;overflow:hidden;text-align:center">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:68px 68px;opacity:.22;pointer-events:none"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto">
+    <div class="au" style="animation-delay:.05s;display:flex;justify-content:center;margin-bottom:0">
+      <div class="hbadge"><span class="bdot"></span>IEEE MTT-S · Student Branch Chapter · Grades 11 / 12 · Open Access</div>
+    </div>
+    <h1 class="au" style="animation-delay:.12s;font-family:var(--fd);font-size:clamp(60px,12vw,172px);line-height:.86;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:1.5rem">
+      Radio<br/>
+      <span style="-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(90deg,var(--cy),var(--tl),var(--ac));display:inline-block">Frequency</span><br/>
+      Fundamentals
+    </h1>
+    <p class="au" style="animation-delay:.22s;font-family:var(--fm);font-size:12.5px;color:var(--mu2);line-height:1.85;max-width:500px;margin:0 auto 2.2rem">
+      Eight core RF &amp; microwave modules. Zero prior knowledge required. Physical intuition first — then equations and HFSS simulation data.
+    </p>
+    <div class="au" style="animation-delay:.3s;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem">
+      <a href="#modules" style="background:linear-gradient(135deg,#006699,var(--cy));color:white;padding:.78rem 1.85rem;font-family:var(--fm);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:none;box-shadow:0 4px 24px rgba(0,200,255,0.25);text-decoration:none">Explore Modules →</a>
+      <a href="#videos" style="background:transparent;color:var(--cy);border:1px solid rgba(0,200,255,0.38);padding:.78rem 1.85rem;font-family:var(--fm);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:none;text-decoration:none">Watch Lectures</a>
+    </div>
+    <div class="au" style="animation-delay:.38s;display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap">
+      <div style="text-align:center"><div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">08</div><div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Modules</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">06</div><div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Video Lectures</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">4+</div><div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Sim Tools</div></div>
+      <div style="text-align:center"><div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">Free</div><div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Open Access</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="tk">
+  <div class="tt" id="ticker"></div>
+</div>
+
+<section id="about" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1);background:linear-gradient(180deg,var(--bg) 0%,var(--s1) 100%)">
+  <div style="max-width:1200px;margin:0 auto" class="about-grid">
+    <div style="display:flex;justify-content:center">
+      <div style="width:280px;height:280px;filter:drop-shadow(0 0 20px rgba(0,200,255,0.16))">
+        <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <circle cx="160" cy="160" r="145" stroke="#1e1e1e" stroke-width="1"/>
+          <circle cx="160" cy="160" r="100" stroke="#00c8ff" stroke-width="0.4" stroke-opacity="0.15" stroke-dasharray="4 4"/>
+          <circle cx="160" cy="160" r="55" stroke="#00c8ff" stroke-width="0.4" stroke-opacity="0.2" stroke-dasharray="2 3"/>
+          <line x1="160" y1="160" x2="160" y2="45" stroke="#1c1c1c" stroke-width="2"/>
+          <line x1="160" y1="160" x2="280" y2="160" stroke="#1c1c1c" stroke-width="2"/>
+          <line x1="160" y1="160" x2="160" y2="275" stroke="#1c1c1c" stroke-width="2"/>
+          <line x1="160" y1="160" x2="40" y2="160" stroke="#1c1c1c" stroke-width="2"/>
+          <rect x="145" y="145" width="30" height="30" fill="#0a0a0a" stroke="#00c8ff" stroke-width="1" rx="1"/>
+          <text x="160" y="164" text-anchor="middle" fill="#00c8ff" font-size="7.5" font-family="monospace">PORT</text>
+          <text x="152" y="28" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₁₁</text>
+          <text x="283" y="155" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₂₁</text>
+          <text x="152" y="295" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₁₂</text>
+          <text x="14" y="155" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₂₂</text>
+          <g>
+            <circle cx="160" cy="45" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
+            <text x="160" y="48.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">1</text>
+            <circle cx="160" cy="45" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25"><animate attributeName="r" values="10;18;10" dur="1.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="1.6s" repeatCount="indefinite"/></circle>
+          </g>
+          <g>
+            <circle cx="280" cy="160" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
+            <text x="280" y="163.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">2</text>
+            <circle cx="280" cy="160" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25"><animate attributeName="r" values="10;18;10" dur="2.0s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="2.0s" repeatCount="indefinite"/></circle>
+          </g>
+          <g>
+            <circle cx="160" cy="275" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
+            <text x="160" y="278.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">3</text>
+            <circle cx="160" cy="275" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25"><animate attributeName="r" values="10;18;10" dur="2.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="2.4s" repeatCount="indefinite"/></circle>
+          </g>
+          <g>
+            <circle cx="40" cy="160" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
+            <text x="40" y="163.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">4</text>
+            <circle cx="40" cy="160" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25"><animate attributeName="r" values="10;18;10" dur="2.8s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="2.8s" repeatCount="indefinite"/></circle>
+          </g>
+          <path d="M 58 218 Q 100 198 130 218 Q 160 238 190 218 Q 222 198 262 218" fill="none" stroke="#e8ff00" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+          <text x="160" y="248" text-anchor="middle" fill="#e8ff00" font-size="7.5" font-family="monospace" opacity="0.45">300 MHz — 300 GHz</text>
+        </svg>
       </div>
     </div>
-
-    <!-- Links -->
-    <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap">
-      <span onclick="scrollTo('about')"   class="navlink" style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;cursor:none;transition:color .2s" onmouseenter="hoverOn()" onmouseleave="hoverOff()">About</span>
-      <span onclick="scrollTo('modules')" class="navlink" style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;cursor:none;transition:color .2s" onmouseenter="hoverOn()" onmouseleave="hoverOff()">Modules</span>
-      <span onclick="scrollTo('videos')"  class="navlink" style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;cursor:none;transition:color .2s" onmouseenter="hoverOn()" onmouseleave="hoverOff()">Videos</span>
-      <span onclick="scrollTo('tools')"   class="navlink" style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;cursor:none;transition:color .2s" onmouseenter="hoverOn()" onmouseleave="hoverOff()">Tools</span>
-      <div onclick="scrollTo('modules')" onmouseenter="hoverOn()" onmouseleave="hoverOff()"
-           style="border:1px solid var(--ac);padding:.32rem .85rem;font-family:var(--fm);font-size:9.5px;color:var(--ac);letter-spacing:.14em;text-transform:uppercase;cursor:none">
-        Start Learning →
-      </div>
-    </div>
-  </nav>
-
-  <!-- ══ HERO ═════════════════════════════════════════════════════════════════ -->
-  <section id="home" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-                              padding:110px 1.75rem 80px;border-bottom:1px solid var(--b1);
-                              position:relative;overflow:hidden;text-align:center">
-
-    <!-- Grid background -->
-    <div style="position:absolute;inset:0;
-                background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);
-                background-size:68px 68px;opacity:.22;pointer-events:none"></div>
-
-    <!-- Animated orbs -->
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-
-    <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto">
-
-      <!-- Badge -->
-      <div class="au" style="animation-delay:.05s;display:flex;justify-content:center;margin-bottom:0">
-        <div class="hbadge">
-          <span class="bdot"></span>
-          IEEE MTT-S · Student Branch Chapter · Grades 11 / 12 · Open Access
-        </div>
-      </div>
-
-      <!-- Headline -->
-      <h1 class="au" style="animation-delay:.12s;font-family:var(--fd);font-size:clamp(60px,12vw,172px);
-                              line-height:.86;letter-spacing:-.025em;text-transform:uppercase;margin-bottom:1.5rem">
-        Radio<br/>
-        <span style="-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;
-                     background-image:linear-gradient(90deg,var(--cy),var(--tl),var(--ac));display:inline-block">Frequency</span><br/>
-        Fundamentals
-      </h1>
-
-      <!-- Subheading -->
-      <p class="au" style="animation-delay:.22s;font-family:var(--fm);font-size:12.5px;color:var(--mu2);
-                             line-height:1.85;max-width:500px;margin:0 auto 2.2rem">
-        Eight core RF &amp; microwave modules. Zero prior knowledge required.
-        Physical intuition first — then equations and HFSS simulation data.
+    <div>
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.6rem">About This Platform</div>
+      <h2 style="font-family:var(--fd);font-size:clamp(30px,4vw,50px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:1rem">
+        Welcome to <span style="color:var(--cy)">IEEE MTT-S</span><br/>RF Learning Hub
+      </h2>
+      <p style="font-family:var(--fm);font-size:12px;color:var(--mu2);line-height:1.85;margin-bottom:.85rem">
+        The IEEE Microwave Theory and Techniques Society Student Branch Chapter presents a dedicated e-learning platform designed especially for Class 11 and 12 students curious about Radio Frequency and Microwave Engineering.
       </p>
-
-      <!-- CTAs -->
-      <div class="au" style="animation-delay:.3s;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem">
-        <div onclick="scrollTo('modules')" onmouseenter="hoverOn()" onmouseleave="hoverOff()"
-             style="background:linear-gradient(135deg,#006699,var(--cy));color:white;padding:.78rem 1.85rem;
-                    font-family:var(--fm);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-                    cursor:none;box-shadow:0 4px 24px rgba(0,200,255,.25);transition:all .25s">
-          Explore Modules →
-        </div>
-        <div onclick="scrollTo('videos')" onmouseenter="hoverOn()" onmouseleave="hoverOff()"
-             style="background:transparent;color:var(--cy);border:1px solid rgba(0,200,255,.38);padding:.78rem 1.85rem;
-                    font-family:var(--fm);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:all .25s">
-          Watch Lectures
-        </div>
+      <div class="hl-bar">
+        This platform bridges the gap between school-level physics and professional RF engineering — no prior background required. Every concept is explained from first principles.
       </div>
-
-      <!-- Stats -->
-      <div class="au" style="animation-delay:.38s;display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap">
-        <div style="text-align:center">
-          <div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">08</div>
-          <div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Modules</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">06</div>
-          <div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Video Lectures</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">4+</div>
-          <div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Sim Tools</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:var(--fd);font-size:clamp(1.7rem,3vw,2.4rem);color:var(--cy)">Free</div>
-          <div style="font-family:var(--fm);font-size:9px;color:var(--mu);letter-spacing:.15em;text-transform:uppercase;margin-top:3px">Open Access</div>
-        </div>
+      <p style="font-family:var(--fm);font-size:12px;color:var(--mu2);line-height:1.85;margin-bottom:1.3rem">
+        From EM waves to designing real-world RF components like Branch Line Couplers, Phase Shifters, and Patch Antennas — structured lectures, visualizations, and simulation guides for high school learners.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span class="pill">Class 11 &amp; 12</span><span class="pill">RF Fundamentals</span><span class="pill">Microwave Design</span><span class="pill">Free Resource</span><span class="pill">IEEE Certified</span>
       </div>
-
     </div>
-  </section>
-
-  <!-- ══ TICKER ════════════════════════════════════════════════════════════════ -->
-  <div class="tk">
-    <div class="tt" id="ticker"></div>
   </div>
+</section>
 
-  <!-- ══ ABOUT ═════════════════════════════════════════════════════════════════ -->
-  <section id="about" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1);
-                               background:linear-gradient(180deg,var(--bg) 0%,var(--s1) 100%)">
-    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-                gap:3.5rem;align-items:center">
-
-      <!-- Animated RF Diagram SVG -->
-      <div style="display:flex;justify-content:center">
-        <div style="width:280px;height:280px;filter:drop-shadow(0 0 20px rgba(0,200,255,.16))">
-          <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-            <circle cx="160" cy="160" r="145" stroke="#1e1e1e" stroke-width="1"/>
-            <circle cx="160" cy="160" r="100" stroke="#00c8ff" stroke-width="0.4" stroke-opacity="0.15" stroke-dasharray="4 4"/>
-            <circle cx="160" cy="160" r="55"  stroke="#00c8ff" stroke-width="0.4" stroke-opacity="0.2"  stroke-dasharray="2 3"/>
-            <line x1="160" y1="160" x2="160" y2="45"  stroke="#1c1c1c" stroke-width="2"/>
-            <line x1="160" y1="160" x2="280" y2="160" stroke="#1c1c1c" stroke-width="2"/>
-            <line x1="160" y1="160" x2="160" y2="275" stroke="#1c1c1c" stroke-width="2"/>
-            <line x1="160" y1="160" x2="40"  y2="160" stroke="#1c1c1c" stroke-width="2"/>
-            <rect x="145" y="145" width="30" height="30" fill="#0a0a0a" stroke="#00c8ff" stroke-width="1" rx="1"/>
-            <text x="160" y="164" text-anchor="middle" fill="#00c8ff" font-size="7.5" font-family="monospace">PORT</text>
-            <text x="152" y="28"  fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₁₁</text>
-            <text x="283" y="155" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₂₁</text>
-            <text x="152" y="295" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₁₂</text>
-            <text x="14"  y="155" fill="#00c8ff" font-size="9" font-family="monospace" opacity="0.6">S₂₂</text>
-            <!-- Port 1 -->
-            <g>
-              <circle cx="160" cy="45" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
-              <text x="160" y="48.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">1</text>
-              <circle cx="160" cy="45" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25">
-                <animate attributeName="r" values="10;18;10" dur="1.6s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="1.6s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-            <!-- Port 2 -->
-            <g>
-              <circle cx="280" cy="160" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
-              <text x="280" y="163.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">2</text>
-              <circle cx="280" cy="160" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25">
-                <animate attributeName="r" values="10;18;10" dur="2.0s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="2.0s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-            <!-- Port 3 -->
-            <g>
-              <circle cx="160" cy="275" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
-              <text x="160" y="278.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">3</text>
-              <circle cx="160" cy="275" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25">
-                <animate attributeName="r" values="10;18;10" dur="2.4s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="2.4s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-            <!-- Port 4 -->
-            <g>
-              <circle cx="40" cy="160" r="10" fill="#0a0a0a" stroke="#00c8ff" stroke-width="0.9"/>
-              <text x="40" y="163.5" text-anchor="middle" fill="#00c8ff" font-size="7" font-family="monospace">4</text>
-              <circle cx="40" cy="160" r="14" fill="none" stroke="#00c8ff" stroke-width="0.5" stroke-opacity="0.25">
-                <animate attributeName="r" values="10;18;10" dur="2.8s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-opacity" values="0.25;0;0.25" dur="2.8s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-            <path d="M 58 218 Q 100 198 130 218 Q 160 238 190 218 Q 222 198 262 218"
-                  fill="none" stroke="#e8ff00" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 3"/>
-            <text x="160" y="248" text-anchor="middle" fill="#e8ff00" font-size="7.5" font-family="monospace" opacity="0.45">300 MHz — 300 GHz</text>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Text -->
+<section id="modules" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem">
       <div>
-        <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.6rem">About This Platform</div>
-        <h2 style="font-family:var(--fd);font-size:clamp(30px,4vw,50px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:1rem">
-          Welcome to <span style="color:var(--cy)">IEEE MTT-S</span><br/>RF Learning Hub
-        </h2>
-        <p style="font-family:var(--fm);font-size:12px;color:var(--mu2);line-height:1.85;margin-bottom:.85rem">
-          The IEEE Microwave Theory and Techniques Society Student Branch Chapter presents a dedicated e-learning
-          platform designed especially for Class 11 and 12 students curious about Radio Frequency and Microwave Engineering.
-        </p>
-        <div class="hl-bar">
-          This platform bridges the gap between school-level physics and professional RF engineering — no prior
-          background required. Every concept is explained from first principles.
-        </div>
-        <p style="font-family:var(--fm);font-size:12px;color:var(--mu2);line-height:1.85;margin-bottom:1.3rem">
-          From EM waves to designing real-world RF components like Branch Line Couplers, Phase Shifters, and
-          Patch Antennas — structured lectures, visualizations, and simulation guides for high school learners.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px">
-          <span class="pill">Class 11 &amp; 12</span>
-          <span class="pill">RF Fundamentals</span>
-          <span class="pill">Microwave Design</span>
-          <span class="pill">Free Resource</span>
-          <span class="pill">IEEE Certified</span>
-        </div>
+        <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Curriculum</div>
+        <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Learning Modules</h2>
+        <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:480px">Structured curriculum from EM basics to advanced RF component design — beginner to advanced</p>
       </div>
-
+      <div style="font-family:var(--fm);font-size:10.5px;color:var(--mu);letter-spacing:.1em">08 / 08 Active</div>
     </div>
-  </section>
+    <div class="modules-grid" id="modules-grid"></div>
+  </div>
+</section>
 
-  <!-- ══ MODULES ═══════════════════════════════════════════════════════════════ -->
-  <section id="modules" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1)">
-    <div style="max-width:1300px;margin:0 auto">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem">
-        <div>
-          <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Curriculum</div>
-          <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Learning Modules</h2>
-          <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:480px">Structured curriculum from EM basics to advanced RF component design — beginner to advanced</p>
-        </div>
-        <div style="font-family:var(--fm);font-size:10.5px;color:var(--mu);letter-spacing:.1em">08 / 08 Active</div>
-      </div>
-      <!-- Populated by JS -->
-      <div id="modules-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:1px;background:var(--b1)"></div>
+<section id="videos" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1);background:linear-gradient(180deg,var(--bg) 0%,var(--s1) 55%,var(--bg) 100%)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:2.5rem">
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Multimedia Content</div>
+      <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Lectures &amp; Simulations</h2>
+      <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:480px;margin:0 auto">Watch curated video lectures and guided simulation walkthroughs from RF engineers</p>
     </div>
-  </section>
-
-  <!-- ══ VIDEOS ════════════════════════════════════════════════════════════════ -->
-  <section id="videos" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1);
-                                background:linear-gradient(180deg,var(--bg) 0%,var(--s1) 55%,var(--bg) 100%)">
-    <div style="max-width:1300px;margin:0 auto">
-      <div style="text-align:center;margin-bottom:2.5rem">
-        <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Multimedia Content</div>
-        <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Lectures &amp; Simulations</h2>
-        <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:480px;margin:0 auto">Watch curated video lectures and guided simulation walkthroughs from RF engineers</p>
-      </div>
-      <!-- Filter buttons -->
-      <div style="display:flex;gap:.45rem;justify-content:center;margin-bottom:2.25rem;flex-wrap:wrap">
-        <button class="ftab on"  data-filter="all"        onclick="setFilter(this,'all')"        onmouseenter="hoverOn()" onmouseleave="hoverOff()">All Videos</button>
-        <button class="ftab"     data-filter="lecture"    onclick="setFilter(this,'lecture')"    onmouseenter="hoverOn()" onmouseleave="hoverOff()">Lectures</button>
-        <button class="ftab"     data-filter="simulation" onclick="setFilter(this,'simulation')" onmouseenter="hoverOn()" onmouseleave="hoverOff()">Simulations</button>
-        <button class="ftab"     data-filter="tutorial"   onclick="setFilter(this,'tutorial')"   onmouseenter="hoverOn()" onmouseleave="hoverOff()">Tutorials</button>
-      </div>
-      <!-- Populated by JS -->
-      <div id="videos-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1px;background:var(--b1)"></div>
+    <div style="display:flex;gap:.45rem;justify-content:center;margin-bottom:2.25rem;flex-wrap:wrap">
+      <button class="ftab on" data-filter="all">All Videos</button>
+      <button class="ftab" data-filter="lecture">Lectures</button>
+      <button class="ftab" data-filter="simulation">Simulations</button>
+      <button class="ftab" data-filter="tutorial">Tutorials</button>
     </div>
-  </section>
+    <div class="videos-grid" id="videos-grid"></div>
+  </div>
+</section>
 
-  <!-- ══ LEARNING PATH ══════════════════════════════════════════════════════════ -->
-  <section id="path" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1)">
-    <div style="max-width:1100px;margin:0 auto">
-      <div style="margin-bottom:3rem">
-        <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Structured Progress</div>
-        <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Learning Path</h2>
-        <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:460px">A recommended sequence for mastering RF engineering from zero to simulation-ready</p>
-      </div>
-      <div style="max-width:760px;position:relative">
-        <!-- Timeline vertical line -->
-        <div style="position:absolute;left:26px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--cy),transparent)"></div>
-        <!-- Populated by JS -->
-        <div id="path-steps"></div>
-      </div>
+<section id="path" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="margin-bottom:3rem">
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Structured Progress</div>
+      <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Learning Path</h2>
+      <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:460px">A recommended sequence for mastering RF engineering from zero to simulation-ready</p>
     </div>
-  </section>
-
-  <!-- ══ TOOLS ══════════════════════════════════════════════════════════════════ -->
-  <section id="tools" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1);
-                               background:linear-gradient(180deg,var(--bg),var(--s1))">
-    <div style="max-width:1200px;margin:0 auto">
-      <div style="margin-bottom:2.5rem">
-        <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Simulation &amp; Design</div>
-        <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Tools Used</h2>
-        <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:450px">Industry-standard EM simulation software referenced throughout this curriculum</p>
-      </div>
-      <!-- Populated by JS -->
-      <div id="tools-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:1px;background:var(--b1)"></div>
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ═════════════════════════════════════════════════════════════════ -->
-  <footer style="border-top:1px solid var(--b1);padding:1.4rem 1.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-    <div style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase">© IEEE MTT-S · Microwave Theory &amp; Techniques Society</div>
-    <div style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase">Designed for High School · Grades 11 / 12</div>
-  </footer>
-
-  <!-- ══ MODAL ══════════════════════════════════════════════════════════════════ -->
-  <div class="mo hidden" id="modal" onclick="handleModalBg(event)">
-    <div class="mp" id="modal-panel">
-
-      <!-- Video preview area -->
-      <div class="mva" style="background:linear-gradient(135deg,#0a0a0a,#0e1218)">
-        <div style="position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),
-                    linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:38px 38px;opacity:.25"></div>
-        <div class="mvai">
-          <div id="modal-icon" style="font-size:52px;opacity:.15;position:relative;z-index:0"></div>
-          <div class="mbp" onmouseenter="hoverOn()" onmouseleave="hoverOff()">▶</div>
-          <div id="modal-play-label" style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;position:relative;z-index:1"></div>
-        </div>
-        <div id="modal-color-bar" style="position:absolute;bottom:0;left:0;right:0;height:2px"></div>
-      </div>
-
-      <!-- Header -->
-      <div style="padding:1.2rem 1.75rem;border-bottom:1px solid var(--b1);display:flex;align-items:center;
-                  justify-content:space-between;gap:1rem;flex-shrink:0">
-        <div>
-          <div id="modal-meta" style="font-family:var(--fm);font-size:8.5px;letter-spacing:.25em;color:var(--mu);text-transform:uppercase;margin-bottom:.2rem"></div>
-          <h2 id="modal-title" style="font-family:var(--fd);font-size:clamp(30px,5vw,54px);text-transform:uppercase;line-height:.92;letter-spacing:-.02em"></h2>
-        </div>
-        <button class="cx" onclick="closeModal()" onmouseenter="hoverOn()" onmouseleave="hoverOff()">✕</button>
-      </div>
-
-      <!-- Tabs -->
-      <div style="padding:.82rem 1.75rem;border-bottom:1px solid var(--b1);flex-shrink:0">
-        <div class="mtr">
-          <button class="mtb on" onclick="setTab('layman',this)"     onmouseenter="hoverOn()" onmouseleave="hoverOff()">🧠 Analogy</button>
-          <button class="mtb"    onclick="setTab('theory',this)"     onmouseenter="hoverOn()" onmouseleave="hoverOff()">⚗️ Theory</button>
-          <button class="mtb"    onclick="setTab('simulation',this)" onmouseenter="hoverOn()" onmouseleave="hoverOff()">📊 Simulation</button>
-        </div>
-      </div>
-
-      <!-- Scrollable content — populated by JS -->
-      <div class="ms">
-        <div style="padding:1.75rem">
-          <div id="tab-content"></div>
-        </div>
-      </div>
-
-      <!-- Bottom dot-nav + prev/next -->
-      <div id="modal-bottom" style="border-top:1px solid var(--b1);padding:.82rem 1.75rem;display:flex;
-                                     justify-content:space-between;align-items:center;flex-shrink:0;background:var(--s1)">
-        <div id="dot-nav"   style="display:flex;gap:.3rem;align-items:center"></div>
-        <div id="prev-next" style="display:flex;gap:.38rem"></div>
-      </div>
-
+    <div style="max-width:760px;position:relative">
+      <div style="position:absolute;left:26px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--cy),transparent)"></div>
+      <div id="path-steps"></div>
     </div>
   </div>
+</section>
 
-  <!-- JavaScript (deferred so DOM is ready) -->
-  <script src="main.js" defer></script>
+<section id="tools" style="padding:5.5rem 1.75rem;border-bottom:1px solid var(--b1);background:linear-gradient(180deg,var(--bg),var(--s1))">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="margin-bottom:2.5rem">
+      <div style="font-family:var(--fm);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cy);margin-bottom:.5rem">Simulation &amp; Design</div>
+      <h2 style="font-family:var(--fd);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin-bottom:.6rem">Tools Used</h2>
+      <p style="font-family:var(--fm);font-size:12px;color:var(--mu);line-height:1.75;max-width:450px">Industry-standard EM simulation software referenced throughout this curriculum</p>
+    </div>
+    <div class="tools-grid" id="tools-grid"></div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--b1);padding:1.4rem 1.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+  <div style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase">© IEEE MTT-S · Microwave Theory &amp; Techniques Society</div>
+  <div style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase">Designed for High School · Grades 11 / 12</div>
+</footer>
+
+<div class="mo" id="modal" aria-modal="true" role="dialog">
+  <div class="mp" id="modal-panel">
+    <div class="mva" style="background:linear-gradient(135deg,#0a0a0a,#0e1218)">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:38px 38px;opacity:.25"></div>
+      <div class="mvai">
+        <div id="modal-icon" style="font-size:52px;opacity:.15;position:relative;z-index:0"></div>
+        <div class="mbp">▶</div>
+        <div id="modal-play-label" style="font-family:var(--fm);font-size:9.5px;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;position:relative;z-index:1"></div>
+      </div>
+      <div id="modal-color-bar" style="position:absolute;bottom:0;left:0;right:0;height:2px"></div>
+    </div>
+    <div style="padding:1.2rem 1.75rem;border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-shrink:0">
+      <div>
+        <div id="modal-sub" style="font-family:var(--fm);font-size:8.5px;letter-spacing:.25em;color:var(--mu);text-transform:uppercase;margin-bottom:.2rem"></div>
+        <h2 id="modal-title" style="font-family:var(--fd);font-size:clamp(30px,5vw,54px);text-transform:uppercase;line-height:.92;letter-spacing:-.02em"></h2>
+      </div>
+      <button class="cx" id="modal-close">✕</button>
+    </div>
+    <div style="padding:.82rem 1.75rem;border-bottom:1px solid var(--b1);flex-shrink:0">
+      <div class="mtr">
+        <button class="mtb on" data-tab="layman">🧠 Analogy</button>
+        <button class="mtb" data-tab="theory">⚗️ Theory</button>
+        <button class="mtb" data-tab="simulation">📊 Simulation</button>
+      </div>
+    </div>
+    <div class="ms">
+      <div style="padding:1.75rem">
+        <div id="tab-layman" class="tab-content active ai">
+          <div class="sl">Physical Intuition — No Math Required</div>
+          <h3 id="layman-title" style="font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);text-transform:uppercase;line-height:1;letter-spacing:-.01em;margin-bottom:.9rem"></h3>
+          <p id="layman-desc" style="font-family:var(--fm);font-size:12px;color:#bcbcbc;line-height:1.88;margin-bottom:.5rem"></p>
+          <div class="an">
+            <div style="font-size:8.5px;letter-spacing:.25em;text-transform:uppercase;opacity:.5;margin-bottom:.3rem">Topics In This Module</div>
+            <div id="layman-topics"></div>
+          </div>
+          <div style="margin-top:1.75rem">
+            <div class="sl">Frequency Response Preview</div>
+            <div id="freq-viz-container"></div>
+            <div style="display:flex;justify-content:space-between;margin-top:.32rem;font-family:monospace;font-size:8.5px;color:var(--mu)">
+              <span>Low →</span><span>f₀ (resonance)</span><span>← High</span>
+            </div>
+          </div>
+          <div style="margin-top:1.75rem" class="modal-meta-grid">
+            <div style="background:var(--s2);padding:.8rem 1.05rem"><div style="font-family:var(--fm);font-size:8.5px;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.22rem">Level</div><div id="meta-level" style="font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700"></div></div>
+            <div style="background:var(--s2);padding:.8rem 1.05rem"><div style="font-family:var(--fm);font-size:8.5px;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.22rem">Module</div><div id="meta-module" style="font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700"></div></div>
+            <div style="background:var(--s2);padding:.8rem 1.05rem"><div style="font-family:var(--fm);font-size:8.5px;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.22rem">Lectures</div><div id="meta-lectures" style="font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700"></div></div>
+            <div style="background:var(--s2);padding:.8rem 1.05rem"><div style="font-family:var(--fm);font-size:8.5px;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.22rem">Simulations</div><div id="meta-sims" style="font-family:'Syne',sans-serif;font-size:12.5px;font-weight:700"></div></div>
+          </div>
+        </div>
+
+        <div id="tab-theory" class="tab-content ai">
+          <div class="sl">Engineering Theory</div>
+          <h3 style="font-family:var(--fd);font-size:clamp(22px,3.5vw,38px);text-transform:uppercase;line-height:1;margin-bottom:.9rem">Technical Deep-Dive</h3>
+          <p style="font-family:var(--fm);font-size:12px;color:#bcbcbc;line-height:1.88">Full theoretical treatment begins with fundamental EM principles and builds to circuit-level analysis. Design equations are derived and verified through simulation at the standard 50 Ω reference impedance.</p>
+          <div style="margin-top:1.5rem">
+            <div class="sl">Key Equations</div>
+            <div class="eq">Design frequency: 2.4 GHz (WiFi / ISM band)</div>
+            <div class="eq">Z₀ = 50 Ω (universal RF reference impedance)</div>
+            <div class="eq">λ/4 section: electrical length = 90° at f₀</div>
+            <div class="eq">S-matrix satisfies [S]ᵀ = [S] (reciprocal)</div>
+          </div>
+          <div style="margin-top:1.5rem">
+            <div class="sl">Design Parameters</div>
+            <div id="theory-topics"></div>
+          </div>
+          <div style="margin-top:1.5rem">
+            <div class="sl">Next.js Image Injection (Asset-Ready)</div>
+            <div class="cb"><span class="cm">// Lazy-loaded, optimized HFSS export</span>
+<span class="tg">&lt;Image</span>
+  <span class="at">src</span>={<span class="s" id="code-src"></span>}
+  <span class="at">alt</span>=<span class="s" id="code-alt"></span>
+  <span class="at">fill</span> <span class="at">priority</span> <span class="at">quality</span>={90}
+<span class="tg">/&gt;</span></div>
+          </div>
+        </div>
+
+        <div id="tab-simulation" class="tab-content ai">
+          <div class="sl">HFSS / CST Simulation Assets</div>
+          <h3 style="font-family:var(--fd);font-size:clamp(22px,3.5vw,38px);text-transform:uppercase;line-height:1;margin-bottom:1.2rem">Sim Results</h3>
+          <div id="patch-slider-container" style="display:none;margin-bottom:1.75rem">
+            <div class="sl">Interactive Geometry Tuner</div>
+            <div style="background:#0c0e13;border:1px solid #1a1a1a;padding:1.4rem">
+              <div style="font-family:monospace;font-size:9px;letter-spacing:0.2em;color:#3a3a3a;text-transform:uppercase;margin-bottom:1.1rem">◈ Interactive: Patch Length → Resonant Frequency</div>
+              <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem">
+                <div>
+                  <div style="font-family:monospace;font-size:9px;color:#3e3e3e;margin-bottom:0.15rem">Patch Length L</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:var(--patch-color,#FF6B6B)"><span id="patch-len-val">50</span><span style="font-size:18px;margin-left:3px;color:#444">mm</span></div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-family:monospace;font-size:9px;color:#3e3e3e;margin-bottom:0.15rem">Resonant fᵣ</div>
+                  <div style="font-family:'Bebas Neue',sans-serif;font-size:46px;line-height:1;color:var(--patch-color,#FF6B6B)"><span id="patch-freq-val">2.888</span><span style="font-size:18px;margin-left:3px;color:#444">GHz</span></div>
+                </div>
+              </div>
+              <input type="range" min="20" max="80" value="50" id="patch-slider" style="accent-color:var(--patch-color,#FF6B6B)"/>
+              <div style="display:flex;justify-content:space-between;font-family:monospace;font-size:8px;color:#333;margin-bottom:1.1rem">
+                <span>20mm — high freq</span><span>80mm — low freq</span>
+              </div>
+              <div style="height:40px;background:#08090c;border:1px solid #181818;position:relative;overflow:hidden">
+                <div id="patch-indicator" style="position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--patch-color,#FF6B6B);box-shadow:0 0 12px var(--patch-color,#FF6B6B);transition:left 0.12s ease"></div>
+                <div id="patch-bg-fill" style="position:absolute;left:0;top:0;bottom:0;width:50%;transition:width 0.12s ease"></div>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;padding-left:1rem;font-family:monospace;font-size:9px;color:#252525;letter-spacing:0.08em">Resonance window · BW ≈ <span id="patch-bw">1.5</span>%</div>
+                <div style="position:absolute;right:0.7rem;top:50%;transform:translateY(-50%);font-family:monospace;font-size:10px;color:var(--patch-color,#FF6B6B)">←→</div>
+              </div>
+            </div>
+          </div>
+          <div class="sl">S-Parameter Plot (HFSS Export)</div>
+          <div class="assetph" style="height:180px"><div class="assetph-icon">📈</div><div style="font-family:monospace;font-size:9.5px;color:#3a3a3a;letter-spacing:.1em;text-align:center">S-Parameter Frequency Response</div><div id="sim-path1" style="font-family:monospace;font-size:8px;color:#252525;text-align:center"></div></div>
+          <div class="sim-inner-grid">
+            <div class="assetph" style="height:128px"><div class="assetph-icon">⚡</div><div style="font-family:monospace;font-size:9.5px;color:#3a3a3a;letter-spacing:.1em;text-align:center">E-Field Distribution</div><div id="sim-path2" style="font-family:monospace;font-size:8px;color:#252525;text-align:center"></div></div>
+            <div class="assetph" style="height:128px"><div class="assetph-icon">🔬</div><div style="font-family:monospace;font-size:9.5px;color:#3a3a3a;letter-spacing:.1em;text-align:center">PCB Photograph</div><div id="sim-path3" style="font-family:monospace;font-size:8px;color:#252525;text-align:center"></div></div>
+          </div>
+          <div style="margin-top:1.2rem;background:var(--s2);border:1px solid var(--b1);padding:.95rem;display:flex;gap:.8rem;align-items:flex-start">
+            <div style="color:var(--ac);font-size:15px;flex-shrink:0">◈</div>
+            <div>
+              <div style="font-family:var(--fm);font-size:9.5px;color:var(--ac);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.25rem">Vercel Deployment Ready</div>
+              <div style="font-family:var(--fm);font-size:10.5px;color:var(--mu);line-height:1.7">Files in <span style="color:#ccc">/public/sim/</span> and <span style="color:#ccc">/public/real/</span> are auto-optimized by Next.js Image CDN. SVG served with long-cache headers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-bottom" style="border-top:1px solid var(--b1);padding:.82rem 1.75rem;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;background:var(--s1)">
+      <div style="display:flex;gap:.3rem;align-items:center" id="modal-dots"></div>
+      <div style="display:flex;gap:.38rem" id="modal-nav-btns"></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
