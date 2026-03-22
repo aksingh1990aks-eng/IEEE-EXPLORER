@@ -12,12 +12,9 @@ const CARD_COLOURS = ['#FF6B6B', '#4ECDC4', '#6C5CE7', '#F9CA24', '#10AC84', '#F
 const CARD_EMOJI = ['📡','📻','🛰️','📱','🔬','⚡','🌐','🔭'];
 
 async function fetchComponentData() {
-  if (!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY === 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqeXNvdmtzeXZjbHZncHNrbXNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODc5MzgsImV4cCI6MjA4OTc2MzkzOH0.l5yWlwDBQMvhMwzQoXTbbsuQWZS_MoItUDD1lhNVTbs') return _demo();
+  if (!SUPABASE_ANON_KEY) return _demo();
 
-  // Supabase automatically creates a REST API for the 'rf_components' table
-  // We sort by created_at so your components show up in the order you add them
   const endpoint = `${SUPABASE_URL}/rest/v1/rf_components?select=*&order=id.asc`;
-
   const ctrl = new AbortController();
   const tid  = setTimeout(() => ctrl.abort(), 10_000);
   
@@ -28,17 +25,37 @@ async function fetchComponentData() {
       headers: {
         'apikey': SUPABASE_ANON_KEY,
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation'
       }
     });
     
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+    
+    // 🚨 DEBUG RADAR: This prints exactly what the database sends you
+    console.log("🚨 RAW SUPABASE DATA:", data);
+
     if (!Array.isArray(data) || !data.length) throw new Error('Empty response');
     
-    return data;
+    // BULLETPROOF MAPPING: Catches the data whether Postgres made it lowercase or not
+    const fixedData = data.map(raw => ({
+      ComponentName:    raw.ComponentName    || raw.componentname    || 'Unnamed Component',
+      RealLifeText:     raw.RealLifeText     || raw.reallifetext     || '',
+      RealLifeImageURL: raw.RealLifeImageURL || raw.reallifeimageurl || '',
+      AnalogyText:      raw.AnalogyText      || raw.analogytext      || '',
+      AnalogyImageURL:  raw.AnalogyImageURL  || raw.analogyimageurl  || '',
+      FabricatedImage1: raw.FabricatedImage1 || raw.fabricatedimage1 || '',
+      FabricatedImage2: raw.FabricatedImage2 || raw.fabricatedimage2 || '',
+      FabricatedImage3: raw.FabricatedImage3 || raw.fabricatedimage3 || '',
+      HFSSImage1:       raw.HFSSImage1       || raw.hfssimage1       || '',
+      HFSSImage2:       raw.HFSSImage2       || raw.hfssimage2       || ''
+    }));
+
+    return fixedData;
+
   } catch (err) {
-    console.warn('[RFE] Fetch failed — using demo data.', err.message);
+    console.error('[RFE] Fetch failed:', err.message);
     return _demo();
   } finally {
     clearTimeout(tid);
