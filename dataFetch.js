@@ -1,25 +1,41 @@
 /**
- * dataFetch.js — RF Explorer data layer
+ * dataFetch.js — Supabase Data Layer
  */
 
 'use strict';
 
-const GAS_URL   = 'https://script.google.com/macros/s/AKfycbwRsVc1j8L-UshwX0IWUjKAAJVgTZ7PIjlDknj32x0VEqxmU4Nu7Gm2Yujh7_dS6VBp/exec';
-const MAX_CARDS = 8;
+const SUPABASE_URL = 'https://hjysovksyvclvgpskmsl.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqeXNvdmtzeXZjbHZncHNrbXNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODc5MzgsImV4cCI6MjA4OTc2MzkzOH0.l5yWlwDBQMvhMwzQoXTbbsuQWZS_MoItUDD1lhNVTbs';
 
+const MAX_CARDS = 8;
 const CARD_COLOURS = ['#FF6B6B', '#4ECDC4', '#6C5CE7', '#F9CA24', '#10AC84', '#FF8B94', '#45B7D1', '#F0A500'];
 const CARD_EMOJI = ['📡','📻','🛰️','📱','🔬','⚡','🌐','🔭'];
 
 async function fetchComponentData() {
-  if (!GAS_URL || GAS_URL.startsWith('YOUR_')) return _demo();
+  if (!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY === 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqeXNvdmtzeXZjbHZncHNrbXNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxODc5MzgsImV4cCI6MjA4OTc2MzkzOH0.l5yWlwDBQMvhMwzQoXTbbsuQWZS_MoItUDD1lhNVTbs') return _demo();
+
+  // Supabase automatically creates a REST API for the 'rf_components' table
+  // We sort by created_at so your components show up in the order you add them
+  const endpoint = `${SUPABASE_URL}/rest/v1/rf_components?select=*&order=id.asc`;
 
   const ctrl = new AbortController();
   const tid  = setTimeout(() => ctrl.abort(), 10_000);
+  
   try {
-    const res  = await fetch(GAS_URL, { signal: ctrl.signal, cache: 'no-cache' });
+    const res = await fetch(endpoint, {
+      signal: ctrl.signal,
+      cache: 'no-cache',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     if (!Array.isArray(data) || !data.length) throw new Error('Empty response');
+    
     return data;
   } catch (err) {
     console.warn('[RFE] Fetch failed — using demo data.', err.message);

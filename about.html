@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RF Explorer — About MTT-S GGV</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="page-cards">
+
+  <div id="cd"></div>
+  <div id="cr"></div>
+
+  <nav class="navbar navbar--solid" id="navbar">
+    <a href="index.html" class="nav-back">← Home</a>
+    <a href="index.html" class="nav-brand">RF<span>Explorer</span></a>
+    <a href="cards.html" class="nav-cta">Explore components →</a>
+  </nav>
+
+  <div class="cards-page-wrap">
+
+    <header class="cards-hd">
+      <p class="cards-hd-pre anim-in" style="--d:.05s">The Initiative</p>
+      <h1 class="cards-hd-title anim-in" style="--d:.2s">
+        IEEE MTT-S<br/>
+        <em>Student Branch Chapter GGV</em>
+      </h1>
+      <p class="cards-hd-sub anim-in" style="--d:.35s">
+        We are the Microwave Theory and Technology Society at Guru Ghasidas Vishwavidyalaya. 
+        Our mission is to advance the understanding of radio frequency, microwave engineering, and antenna design.
+      </p>
+    </header>
+
+    <div class="cards-grid anim-in" style="--d:.5s">
+      
+      <article class="rf-card">
+        <div class="rf-card__colour" style="background: var(--c2);"></div>
+        <div class="rf-card__body" style="padding-bottom: 24px;">
+          <h2 class="rf-card__name">Our Mission</h2>
+          <p class="rf-card__preview">To bridge the gap between abstract electromagnetic theory and practical, real-world engineering. We build interactive educational platforms like RF Explorer to make invisible frequencies visible and intuitive for the next generation of electronics engineers.</p>
+        </div>
+      </article>
+
+      <article class="rf-card">
+        <div class="rf-card__colour" style="background: var(--c3);"></div>
+        <div class="rf-card__body" style="padding-bottom: 24px;">
+          <h2 class="rf-card__name">Our Domain</h2>
+          <p class="rf-card__preview">We focus strictly on high-frequency electronics. From fundamental waveguide theory and analog electronics to advanced HFSS simulations of Vivaldi and patch antennas, we push the boundaries of what students can build and analyze in wireless communication.</p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+
+  <div class="page-veil" id="pageVeil"></div>
+
+  <script src="dataFetch.js"></script>
+  <script src="animations.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

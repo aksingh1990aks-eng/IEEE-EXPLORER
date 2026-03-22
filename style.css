@@ -860,8 +860,74 @@ body.page-component { overflow:hidden; }
   background: var(--white);
   align-items:center; justify-content:center; text-align:center;
 }
+/* ───────────────────────────────────────
+   AESTHETIC RF GRID BACKGROUND 
+   ─────────────────────────────────────── */
 .cs-hero-rings {
-  position:absolute; inset:0; overflow:hidden; opacity:.5;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
+  /* Engineering blueprint grid pattern */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(108, 92, 231, 0.04) 0%, transparent 60%),
+    linear-gradient(rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-position: center, center, center;
+  /* Smoothly fades out at the bottom to blend into the next slide */
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+.rf-pulse {
+  position: absolute;
+  border-radius: 100px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Vertical and Horizontal shooting data streams using your palette */
+.p1 { 
+  width: 2px; height: 80px; bottom: -80px; left: 20%; 
+  background: var(--c2); box-shadow: 0 0 15px var(--c2); 
+  animation: pulse-up 4s cubic-bezier(.16,1,.3,1) infinite 0.5s; 
+}
+.p2 { 
+  width: 120px; height: 2px; top: 30%; left: -120px; 
+  background: var(--c1); box-shadow: 0 0 15px var(--c1); 
+  animation: pulse-right 6s cubic-bezier(.16,1,.3,1) infinite 1.2s; 
+}
+.p3 { 
+  width: 2px; height: 100px; bottom: -100px; left: 75%; 
+  background: var(--c3); box-shadow: 0 0 15px var(--c3); 
+  animation: pulse-up 5s cubic-bezier(.16,1,.3,1) infinite 2.8s; 
+}
+.p4 { 
+  width: 60px; height: 2px; top: 65%; right: -60px; 
+  background: var(--c4); box-shadow: 0 0 15px var(--c4); 
+  animation: pulse-left 4.5s cubic-bezier(.16,1,.3,1) infinite 0s; 
+}
+
+@keyframes pulse-up {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  80%  { opacity: 0; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+@keyframes pulse-right {
+  0%   { transform: translateX(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  80%  { opacity: 0; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+@keyframes pulse-left {
+  0%   { transform: translateX(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  80%  { opacity: 0; }
+  100% { transform: translateX(-100vw); opacity: 0; }
 }
 .entry-ghost {
   position:absolute; inset:0;
