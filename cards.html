@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RF Explorer — Choose a Component</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="page-cards">
+
+  <div id="cd"></div>
+  <div id="cr"></div>
+
+  <nav class="navbar navbar--solid" id="navbar">
+    <a href="index.html" class="nav-back">← Back</a>
+    <a href="index.html" class="nav-brand">RF<span>Explorer</span></a>
+    <div class="nav-placeholder"></div>
+  </nav>
+
+  <div class="cards-page-wrap">
+
+    <!-- Header -->
+    <header class="cards-hd">
+      <p class="cards-hd-pre anim-in" style="--d:.05s">Eight invisible things worth understanding</p>
+      <h1 class="cards-hd-title anim-in" style="--d:.2s">
+        What do you want<br/>
+        to understand <em>first?</em>
+      </h1>
+      <p class="cards-hd-sub anim-in" style="--d:.35s">
+        Tap any component to open its five-chapter story — 
+        real world, analogy, fabricated specimen, and 3D simulation.
+      </p>
+    </header>
+
+    <!-- Loading -->
+    <div class="cards-loading" id="cardsLoading">
+      <div class="ld-dots">
+        <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span>
+      </div>
+      <p>Loading components…</p>
+    </div>
+
+    <!-- Error -->
+    <div class="cards-err hidden" id="cardsError">
+      <p id="errorMsg">Something went wrong.</p>
+      <button class="btn-outline" id="btnRetry">Retry</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="cards-grid hidden" id="cardsGrid"></div>
+
+  </div>
+
+  <!-- FLIP expand overlay -->
+  <div class="flip-overlay" id="flipOverlay" aria-hidden="true">
+    <div class="flip-ghost" id="flipGhost"></div>
+  </div>
+
+  <div class="page-veil" id="pageVeil"></div>
+
+  <script src="dataFetch.js"></script>
+  <script src="animations.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

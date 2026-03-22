@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RF Explorer — Component Story</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="page-component">
+
+  <div id="cd"></div>
+  <div id="cr"></div>
+
+  <!-- Navbar (hidden until past hero) -->
+  <nav class="navbar navbar--solid navbar--hidden" id="navbar">
+    <a href="cards.html" class="nav-back">← All components</a>
+    <span class="nav-brand" id="navCompName">—</span>
+    <div class="nav-placeholder"></div>
+  </nav>
+
+  <!-- Progress rail -->
+  <div class="prog-rail" id="progRail">
+    <div class="prog-dots" id="progDots"></div>
+  </div>
+
+  <!-- SCROLL CONTAINER -->
+  <div class="comp-scroll" id="compScroll">
+
+    <!-- ══ SLIDE 0: HERO HOOK ══ -->
+    <section class="cs cs-hero" id="csHero" data-slide="0">
+      <!-- Ripple rings -->
+      <div class="cs-hero-rings" aria-hidden="true">
+        <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" class="cs-rings-svg">
+          <circle class="hring r1" cx="400" cy="400" r="80"/>
+          <circle class="hring r2" cx="400" cy="400" r="160"/>
+          <circle class="hring r3" cx="400" cy="400" r="260"/>
+          <circle class="hring r4" cx="400" cy="400" r="370"/>
+        </svg>
+      </div>
+
+      <!-- FLIP entry ghost -->
+      <div class="entry-ghost" id="entryGhost" aria-hidden="true"></div>
+
+      <div class="cs-hero-content" id="csHeroContent">
+        <p class="cs-hook" id="csHook">You're about to understand something invisible</p>
+        <h1 class="cs-hero-title" id="csHeroTitle">—</h1>
+        <p class="cs-hero-type">RF Component</p>
+        <button class="btn-fill btn-begin" id="btnBegin">
+          Begin the story <span class="btn-begin-arrow">↓</span>
+        </button>
+      </div>
+
+      <div class="cs-nav">
+        <button class="snav" data-target="1" aria-label="Next">↓</button>
+      </div>
+    </section>
+
+    <!-- ══ SLIDE 1: REAL LIFE ══ -->
+    <section class="cs cs-story cs-story--white" id="csStory1" data-slide="1">
+      <div class="cs-story-tag">
+        <span class="tag-num">01</span>
+        <span>Real-world applications</span>
+      </div>
+      <div class="cs-split">
+        <div class="cs-text">
+          <div class="big-num io-anim" style="--io-d:0s">01</div>
+          <h2 class="cs-title io-anim" style="--io-d:.05s">Where does it<br/><em>actually live?</em></h2>
+          <p class="cs-body io-anim" style="--io-d:.1s" id="realLifeText">Loading…</p>
+        </div>
+        <div class="cs-media io-anim-img" style="--io-d:.15s">
+          <div class="media-tile" id="realLifeMedia"></div>
+        </div>
+      </div>
+      <div class="cs-nav">
+        <button class="snav snav-up" data-target="0">↑</button>
+        <span class="snav-label">01 / 04</span>
+        <button class="snav" data-target="2">↓</button>
+      </div>
+    </section>
+
+    <!-- ══ SLIDE 2: ANALOGY ══ -->
+    <section class="cs cs-story cs-story--colour" id="csStory2" data-slide="2">
+      <div class="cs-story-tag">
+        <span class="tag-num">02</span>
+        <span>The analogy</span>
+      </div>
+      <div class="cs-split cs-split--rev">
+        <div class="cs-media io-anim-img" style="--io-d:0s">
+          <div class="media-tile media-tile--sq" id="analogyMedia"></div>
+        </div>
+        <div class="cs-text">
+          <div class="big-num io-anim" style="--io-d:.05s">02</div>
+          <h2 class="cs-title io-anim" style="--io-d:.1s">Think of it<br/><em>like this.</em></h2>
+          <div class="analogy-chip io-anim" style="--io-d:.15s">
+            <span id="analogyLeft">—</span>
+            <span class="chip-sep">is like</span>
+            <span id="analogyRight">—</span>
+          </div>
+          <p class="cs-body io-anim" style="--io-d:.2s" id="analogyText">Loading…</p>
+        </div>
+      </div>
+      <div class="cs-nav">
+        <button class="snav snav-up" data-target="1">↑</button>
+        <span class="snav-label">02 / 04</span>
+        <button class="snav" data-target="3">↓</button>
+      </div>
+    </section>
+
+    <!-- ══ SLIDE 3: FABRICATED ══ -->
+    <section class="cs cs-gallery" id="csStory3" data-slide="3">
+      <div class="cs-story-tag">
+        <span class="tag-num">03</span>
+        <span>Fabricated specimens</span>
+      </div>
+      <div class="cs-gallery-inner">
+        <div class="cs-gallery-head">
+          <div class="big-num io-anim" style="--io-d:0s">03</div>
+          <h2 class="cs-title io-anim" style="--io-d:.05s">The actual,<br/><em>physical object.</em></h2>
+          <p class="cs-body io-anim" style="--io-d:.1s">Real components — machined, etched, and photographed. This is what it looks like in your hands.</p>
+        </div>
+        <div class="fab-grid" id="fabGrid"></div>
+      </div>
+      <div class="cs-nav">
+        <button class="snav snav-up" data-target="2">↑</button>
+        <span class="snav-label">03 / 04</span>
+        <button class="snav" data-target="4">↓</button>
+      </div>
+    </section>
+
+    <!-- ══ SLIDE 4: HFSS ══ -->
+    <section class="cs cs-hfss" id="csStory4" data-slide="4">
+      <div class="cs-story-tag cs-story-tag--light">
+        <span class="tag-num">04</span>
+        <span>HFSS 3D simulation</span>
+      </div>
+      <div class="cs-hfss-inner">
+        <div class="cs-hfss-head">
+          <div class="big-num big-num--light io-anim" style="--io-d:0s">04</div>
+          <h2 class="cs-title cs-title--light io-anim" style="--io-d:.05s">Now see<br/><em>the invisible fields.</em></h2>
+          <p class="cs-body cs-body--light io-anim" style="--io-d:.1s">
+            This is HFSS — the same tool engineers use to simulate electromagnetic energy. 
+            The colours show intensity: <span style="color:#4FC3F7">cool blue = low</span>, 
+            <span style="color:#FFD93D">yellow = medium</span>, 
+            <span style="color:#FF6B6B">red = high.</span>
+          </p>
+        </div>
+        <div class="hfss-two" id="hfssGrid"></div>
+        <div class="hfss-footer">
+          <a href="cards.html" class="btn-fill btn-fill--light">Explore another component →</a>
+        </div>
+      </div>
+      <div class="cs-nav">
+        <button class="snav snav-up cs-nav-light" data-target="3">↑</button>
+        <span class="snav-label snav-label--light">04 / 04</span>
+      </div>
+    </section>
+
+  </div><!-- /comp-scroll -->
+
+  <div class="page-veil" id="pageVeil"></div>
+
+  <script src="dataFetch.js"></script>
+  <script src="animations.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
