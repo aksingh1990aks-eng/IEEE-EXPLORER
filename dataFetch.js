@@ -12,16 +12,12 @@ const CARD_COLOURS = ['#FF6B6B', '#4ECDC4', '#6C5CE7', '#F9CA24', '#10AC84', '#F
 const CARD_EMOJI = ['📡','📻','🛰️','📱','🔬','⚡','🌐','🔭'];
 
 async function fetchComponentData() {
-  if (!SUPABASE_ANON_KEY) return _demo();
-
   const endpoint = `${SUPABASE_URL}/rest/v1/rf_components?select=*&order=id.asc`;
-  const ctrl = new AbortController();
-  const tid  = setTimeout(() => ctrl.abort(), 10_000);
+  const CACHE_KEY = 'rf_offline_backup'; // The name of our secret local save file
   
   try {
     const res = await fetch(endpoint, {
-      signal: ctrl.signal,
-      cache: 'no-cache',
+      cache: 'no-store',
       headers: {
         'apikey': SUPABASE_ANON_KEY,
         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
@@ -32,33 +28,36 @@ async function fetchComponentData() {
     
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    
-    // 🚨 DEBUG RADAR: This prints exactly what the database sends you
-    console.log("🚨 RAW SUPABASE DATA:", data);
-
     if (!Array.isArray(data) || !data.length) throw new Error('Empty response');
     
-    // BULLETPROOF MAPPING: Catches the data whether Postgres made it lowercase or not
     const fixedData = data.map(raw => ({
-      ComponentName:    raw.ComponentName    || raw.componentname    || 'Unnamed Component',
-      RealLifeText:     raw.RealLifeText     || raw.reallifetext     || '',
-      RealLifeImageURL: raw.RealLifeImageURL || raw.reallifeimageurl || '',
-      AnalogyText:      raw.AnalogyText      || raw.analogytext      || '',
-      AnalogyImageURL:  raw.AnalogyImageURL  || raw.analogyimageurl  || '',
-      FabricatedImage1: raw.FabricatedImage1 || raw.fabricatedimage1 || '',
-      FabricatedImage2: raw.FabricatedImage2 || raw.fabricatedimage2 || '',
-      FabricatedImage3: raw.FabricatedImage3 || raw.fabricatedimage3 || '',
-      HFSSImage1:       raw.HFSSImage1       || raw.hfssimage1       || '',
-      HFSSImage2:       raw.HFSSImage2       || raw.hfssimage2       || ''
+      ComponentName:    raw.ComponentName    || raw.componentname    || raw.component_name || 'Unnamed Component',
+      RealLifeText:     raw.RealLifeText     || raw.reallifetext     || raw.real_life_text || '',
+      RealLifeImageURL: raw.RealLifeImageURL || raw.reallifeimageurl || raw.real_life_image_url || '',
+      AnalogyText:      raw.AnalogyText      || raw.analogytext      || raw.analogy_text || '',
+      AnalogyImageURL:  raw.AnalogyImageURL  || raw.analogyimageurl  || raw.analogy_image_url || '',
+      FabricatedImage1: raw.FabricatedImage1 || raw.fabricatedimage1 || raw.fabricated_image_1 || '',
+      FabricatedImage2: raw.FabricatedImage2 || raw.fabricatedimage2 || raw.fabricated_image_2 || '',
+      FabricatedImage3: raw.FabricatedImage3 || raw.fabricatedimage3 || raw.fabricated_image_3 || '',
+      HFSSImage1:       raw.HFSSImage1       || raw.hfssimage1       || raw.hfss_image_1 || '',
+      HFSSImage2:       raw.HFSSImage2       || raw.hfssimage2       || raw.hfss_image_2 || ''
     }));
+
+    // 💾 SILENT SAVE: Back up the fixed data to the browser
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(fixedData)); } catch (_) {}
 
     return fixedData;
 
   } catch (err) {
-    console.error('[RFE] Fetch failed:', err.message);
-    return _demo();
-  } finally {
-    clearTimeout(tid);
+    console.warn('[RFE] Network failed. Checking offline backup...', err.message);
+    
+    // 🛟 OFFLINE RESCUE: If the internet fails, load the backup
+    try {
+      const backup = localStorage.getItem(CACHE_KEY);
+      if (backup) return JSON.parse(backup);
+    } catch (_) {}
+    
+    return []; 
   }
 }
 

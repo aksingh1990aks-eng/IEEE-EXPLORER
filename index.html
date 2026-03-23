@@ -4,6 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RF Explorer — The Invisible World Around You</title>
+  
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+
   <link rel="stylesheet" href="style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -11,11 +16,9 @@
 </head>
 <body class="page-home">
 
-  <!-- Custom Cursor -->
   <div id="cd"></div>
   <div id="cr"></div>
 
-  <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-brand">RF<span>Explorer</span></a>
     <div class="nav-chapter" id="navChapter"></div>
@@ -24,43 +27,24 @@
     <a href="about.html" class="nav-back">About MTT-S</a>
   </nav>
 
-  <!-- ══════════════════════════════════
-       SNAP CONTAINER
-  ══════════════════════════════════ -->
   <div class="home-snap" id="homeSnap">
 
-    <!-- ── SECTION 1: HERO ── -->
     <section class="hs hs-hero" id="secHero" data-chapter="">
-      <!-- Animated ring backdrop -->
-     <div class="hero-waves" aria-hidden="true">
+      <div class="hero-waves" aria-hidden="true">
         <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
           <defs>
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
           </defs>
           <g class="parallax-waves">
-            <use xlink:href="#gentle-wave" x="48" y="0" class="wave w1" />
-            <use xlink:href="#gentle-wave" x="48" y="3" class="wave w2" />
-            <use xlink:href="#gentle-wave" x="48" y="5" class="wave w3" />
-            <use xlink:href="#gentle-wave" x="48" y="7" class="wave w4" />
+            <use xlink:href="#gentle-wave" x="40" y="0" class="wave w1" />
+            <use xlink:href="#gentle-wave" x="38" y="3" class="wave w2" />
+            <use xlink:href="#gentle-wave" x="8" y="5" class="wave w3" />
+            <use xlink:href="#gentle-wave" x="18" y="7" class="wave w4" />
           </g>
         </svg>
       </div>
 
-      <!-- Floating coloured tiles (decorative) -->
-      <!-- <div class="hero-floaters" aria-hidden="true">
-        <div class="floater f1">📡</div>
-        <div class="floater f2">⚡</div>
-        <div class="floater f3">🛰️</div>
-        <div class="floater f4">📱</div>
-        <div class="floater f5">🔬</div>
-        <div class="floater f6">📻</div>
-      </div> -->
-
       <div class="hero-body">
-        <!-- <div class="hero-pill anim-in" style="--d:.05s">
-          <span class="pill-dot"></span>
-          Something invisible is happening all around you
-        </div> -->
         <h1 class="hero-h1">
           <span class="anim-in" style="--d:.18s">RF</span>
           <span class="anim-in anim-in--colour" style="--d:.32s">EXPLORER</span>
@@ -78,13 +62,11 @@
         </div>
       </div>
 
-      <!-- Scroll nudge -->
       <div class="scroll-line anim-in" style="--d:1.1s" aria-hidden="true">
         <div class="scroll-line-bar"></div>
       </div>
     </section>
 
-    <!-- ── SECTION 2: ROADMAP (ONE SECTION, DOTTED LINE) ── -->
     <section class="hs hs-roadmap" id="secRoadmap" data-chapter="The Roadmap">
       <div class="roadmap-wrap">
         <div class="roadmap-head">
@@ -92,10 +74,7 @@
           <h2 class="roadmap-title">Five layers.<br/><em>One complete picture.</em></h2>
         </div>
 
-        <!-- Horizontal dotted path with 5 nodes -->
         <div class="roadmap-track">
-
-          <!-- SVG dotted line (desktop) -->
           <svg class="dotted-line" viewBox="0 0 900 4" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <line x1="0" y1="2" x2="900" y2="2"
               stroke="#111" stroke-width="2"
@@ -104,7 +83,6 @@
           </svg>
 
           <div class="roadmap-nodes">
-
             <div class="rnode" data-n="1" style="--nc:#FF6B6B">
               <div class="rnode-bubble">
                 <span class="rnode-num">01</span>
@@ -159,9 +137,8 @@
                 <p>RF makes sense. The invisible world is yours.</p>
               </div>
             </div>
-
-          </div><!-- /roadmap-nodes -->
-        </div><!-- /roadmap-track -->
+          </div>
+        </div>
 
         <div class="roadmap-cta">
           <a href="cards.html" class="btn-fill">Pick a component to explore</a>
@@ -169,7 +146,6 @@
       </div>
     </section>
 
-    <!-- ── SECTION 3: ABOUT ── -->
     <section class="hs hs-about" id="secAbout" data-chapter="About the Initiative">
       <div class="about-wrap">
 
@@ -195,7 +171,6 @@
         </div>
 
         <div class="about-right">
-          <!-- Colourful stat tiles -->
           <div class="stat-tile st1">
             <span class="st-num">8</span>
             <span class="st-label">RF Components</span>
@@ -217,12 +192,20 @@
       </div>
     </section>
 
-  </div><!-- /home-snap -->
-
-  <div class="page-veil" id="pageVeil"></div>
+  </div><div class="page-veil" id="pageVeil"></div>
 
   <script src="dataFetch.js"></script>
   <script src="animations.js"></script>
   <script src="main.js"></script>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.error('Service Worker failure', err));
+      });
+    }
+  </script>
 </body>
 </html>
