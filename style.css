@@ -311,7 +311,7 @@ body.page-component { overflow:hidden; }
 .cs-text { flex:1; display:flex; flex-direction:column; gap:0; }
 .big-num { font-family:var(--serif); font-size:5rem; font-weight:700; line-height:1; color:var(--c1); opacity:.12; letter-spacing:-.05em; margin-bottom:2px;padding-top: 20px ; }
 .big-num--light { color:var(--white); opacity:.12; }
-.cs-title { font-family:var(--serif); font-size:clamp(1.7rem,3.2vw,2.7rem); font-weight:700; line-height:1.2; letter-spacing:-.02em; color:var(--ink); margin-bottom:20px; }
+.cs-title { font-family:var(--serif); font-size:clamp(1.7rem,3.2vw,2.7rem); font-weight:700; line-height:1.2; letter-spacing:-.02em; color:var(--ink); margin-bottom:20px; padding-top: 40px; }
 .cs-title em { font-style:italic; color:var(--c1); }
 .cs-title--light { color:var(--white); }
 .cs-title--light em { color:var(--c2); }
