@@ -11,7 +11,7 @@
   --off:     #f7f6f3;
   --ink:     #111111;
   --ink2:    #222222;
-  --mid:     #666666;
+  --mid:     #111111;
   --border:  #e8e8e4;
 
   /* Accents */
@@ -128,7 +128,7 @@ a, button, .rf-card, .rnode { cursor:none; }
 @keyframes move-forever { 0% { transform: translate3d(-90px, 0, 0); } 100% { transform: translate3d(85px, 0, 0); } }
 
 .hero-body { position: relative; z-index: 10; display: flex; flex-direction:column; align-items:center; max-width: 740px; gap:0; }
-.hero-h1 { font-family: var(--serif); font-size: clamp(2.6rem, 6.5vw, 5.8rem); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; color: var(--ink); margin-bottom: 28px; display: flex; flex-direction:column; gap:2px; }
+.hero-h1 { font-family: var(--serif); font-size: clamp(2.6rem,5.2vw, 5.8rem); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; color: var(--ink); margin-bottom: 28px; display: flex; flex-direction:column; gap:2px; }
 .hero-h1 em { font-style:italic; color: var(--c3); }
 .hero-sub { font-size: clamp(.85rem, 1.6vw, 1.02rem); color: var(--mid); line-height: 1.88; max-width: 52ch; text-align:center; margin-bottom: 40px; }
 .hero-btns { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
@@ -311,7 +311,7 @@ body.page-component { overflow:hidden; }
 .cs-text { flex:1; display:flex; flex-direction:column; gap:0; }
 .big-num { font-family:var(--serif); font-size:5rem; font-weight:700; line-height:1; color:var(--c1); opacity:.12; letter-spacing:-.05em; margin-bottom:2px;padding-top: 20px ; }
 .big-num--light { color:var(--white); opacity:.12; }
-.cs-title { font-family:var(--serif); font-size:clamp(1.7rem,3.2vw,2.7rem); font-weight:700; line-height:1.2; letter-spacing:-.02em; color:var(--ink); margin-bottom:20px; padding-top: 40px; }
+.cs-title { font-family:var(--serif); font-size:clamp(1.7rem,3.2vw,2.7rem); font-weight:700; line-height:1.2; letter-spacing:-.02em; color:var(--ink);padding-top:20px;}
 .cs-title em { font-style:italic; color:var(--c1); }
 .cs-title--light { color:var(--white); }
 .cs-title--light em { color:var(--c2); }
