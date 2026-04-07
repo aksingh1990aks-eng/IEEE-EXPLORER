@@ -948,6 +948,33 @@ button,
   max-width: 48ch;
 }
 
+.socialMediaHandle {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.socialMediaHandle a {
+  display: flex;
+  gap: 12px;
+}
+
+.socialMediaHandles {
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: start;
+}
+
+@media (max-width: 500px) {
+  .socialMediaHandles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
+  }
+}
+
 .about-right {
   display: grid;
   grid-template-columns: 1fr 1fr;

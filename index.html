@@ -1,211 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RF Explorer — The Invisible World Around You</title>
-  
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#111111" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RF Explorer — The Invisible World Around You</title>
 
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-</head>
-<body class="page-home">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#111111" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
 
-  <div id="cd"></div>
-  <div id="cr"></div>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="page-home">
+    <div id="cd"></div>
+    <div id="cr"></div>
 
-  <nav class="navbar" id="navbar">
-    <a href="index.html" class="nav-brand">RF<span>Explorer</span></a>
-    <div class="nav-chapter" id="navChapter"></div>
-    <a href="cards.html" class="nav-cta">Explore components →</a>
-    <span class="nav-brand" id="navCompName"></span>
-    <a href="about.html" class="nav-back">About MTT-S</a>
-  </nav>
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="nav-brand">RF<span>Explorer</span></a>
+      <div class="nav-chapter" id="navChapter"></div>
+      <a href="cards.html" class="nav-cta">Explore components →</a>
+      <span class="nav-brand" id="navCompName"></span>
+      <a href="about.html" class="nav-back">About MTT-S</a>
+    </nav>
 
-  <div class="home-snap" id="homeSnap">
-
-    <section class="hs hs-hero" id="secHero" data-chapter="">
-      <div class="hero-waves" aria-hidden="true">
-        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g class="parallax-waves">
-            <use xlink:href="#gentle-wave" x="40" y="0" class="wave w1" />
-            <use xlink:href="#gentle-wave" x="38" y="3" class="wave w2" />
-            <use xlink:href="#gentle-wave" x="8" y="5" class="wave w3" />
-            <use xlink:href="#gentle-wave" x="18" y="7" class="wave w4" />
-          </g>
-        </svg>
-      </div>
-
-      <div class="hero-body">
-        <h1 class="hero-h1">
-          <span class="anim-in" style="--d:.18s">RF</span>
-          <span class="anim-in anim-in--colour" style="--d:.32s">EXPLORER</span>
-          <span class="anim-in" style="--d:.46s">See What </span>
-          <em class="anim-in anim-in--italic" style="--d:.6s">you've never seen.</em>
-        </h1>
-        <p class="hero-sub anim-in" style="--d:.76s">
-          Every call you make, every map you open, every satellite that knows where you are —
-          all of it depends on a handful of tiny RF components.
-          This is their story.
-        </p>
-        <div class="hero-btns anim-in" style="--d:.9s">
-          <a href="cards.html" class="btn-fill" id="btnStart">Start the story</a>
-          <button class="btn-outline" id="btnDown">How it works ↓</button>
-        </div>
-      </div>
-
-      <div class="scroll-line anim-in" style="--d:1.1s" aria-hidden="true">
-        <div class="scroll-line-bar"></div>
-      </div>
-    </section>
-
-    <section class="hs hs-roadmap" id="secRoadmap" data-chapter="The Roadmap">
-      <div class="roadmap-wrap">
-        <div class="roadmap-head">
-          <span class="tag-label">How the journey works</span>
-          <h2 class="roadmap-title">Five layers.<br/><em>One complete picture.</em></h2>
-        </div>
-
-        <div class="roadmap-track">
-          <svg class="dotted-line" viewBox="0 0 900 4" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <line x1="0" y1="2" x2="900" y2="2"
-              stroke="#111" stroke-width="2"
-              stroke-dasharray="6 8"
-              class="path-draw"/>
+    <div class="home-snap" id="homeSnap">
+      <section class="hs hs-hero" id="secHero" data-chapter="">
+        <div class="hero-waves" aria-hidden="true">
+          <svg
+            class="waves-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28"
+            preserveAspectRatio="none"
+            shape-rendering="auto"
+          >
+            <defs>
+              <path
+                id="gentle-wave"
+                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+              />
+            </defs>
+            <g class="parallax-waves">
+              <use xlink:href="#gentle-wave" x="40" y="0" class="wave w1" />
+              <use xlink:href="#gentle-wave" x="38" y="3" class="wave w2" />
+              <use xlink:href="#gentle-wave" x="8" y="5" class="wave w3" />
+              <use xlink:href="#gentle-wave" x="18" y="7" class="wave w4" />
+            </g>
           </svg>
-
-          <div class="roadmap-nodes">
-            <div class="rnode" data-n="1" style="--nc:#FF6B6B">
-              <div class="rnode-bubble">
-                <span class="rnode-num">01</span>
-              </div>
-              <div class="rnode-card">
-                <div class="rnode-tile" style="background:#FF6B6B"></div>
-                <h3>Real Life</h3>
-                <p>Where does it actually live in the real world?</p>
-              </div>
-            </div>
-
-            <div class="rnode" data-n="2" style="--nc:#4ECDC4">
-              <div class="rnode-bubble">
-                <span class="rnode-num">02</span>
-              </div>
-              <div class="rnode-card rnode-card--up">
-                <div class="rnode-tile" style="background:#4ECDC4"></div>
-                <h3>The Analogy</h3>
-                <p>An everyday object that makes it click.</p>
-              </div>
-            </div>
-
-            <div class="rnode" data-n="3" style="--nc:#6C5CE7">
-              <div class="rnode-bubble">
-                <span class="rnode-num">03</span>
-              </div>
-              <div class="rnode-card">
-                <div class="rnode-tile" style="background:#6C5CE7"></div>
-                <h3>Physical Form</h3>
-                <p>The actual machined object, photographed.</p>
-              </div>
-            </div>
-
-            <div class="rnode" data-n="4" style="--nc:#F9CA24">
-              <div class="rnode-bubble">
-                <span class="rnode-num">04</span>
-              </div>
-              <div class="rnode-card rnode-card--up">
-                <div class="rnode-tile" style="background:#F9CA24"></div>
-                <h3>3D Simulation</h3>
-                <p>See the invisible electromagnetic fields inside.</p>
-              </div>
-            </div>
-
-            <div class="rnode rnode--final" data-n="5" style="--nc:#10AC84">
-              <div class="rnode-bubble">
-                <span class="rnode-num">✓</span>
-              </div>
-              <div class="rnode-card">
-                <div class="rnode-tile" style="background:#10AC84"></div>
-                <h3>Curiosity unlocked</h3>
-                <p>RF makes sense. The invisible world is yours.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div class="roadmap-cta">
-          <a href="cards.html" class="btn-fill">Pick a component to explore</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="hs hs-about" id="secAbout" data-chapter="About the Initiative">
-      <div class="about-wrap">
-
-        <div class="about-left">
-          <span class="tag-label tag-label--light">About this initiative</span>
-          <h2 class="about-title">
-            Making the<br/>
-            <em>invisible</em> visible<br/>
-            for the next generation.
-          </h2>
-          <p class="about-body">
-            RF components are the backbone of every modern communication system — 
-            5G networks, satellite navigation, radar, medical imaging. 
-            Yet they stay completely hidden from the people who use them most.
+        <div class="hero-body">
+          <h1 class="hero-h1">
+            <span class="anim-in" style="--d: 0.18s">RF</span>
+            <span class="anim-in anim-in--colour" style="--d: 0.32s"
+              >EXPLORER</span
+            >
+            <span class="anim-in" style="--d: 0.46s">See What </span>
+            <em class="anim-in anim-in--italic" style="--d: 0.6s"
+              >you've never seen.</em
+            >
+          </h1>
+          <p class="hero-sub anim-in" style="--d: 0.76s">
+            Every call you make, every map you open, every satellite that knows
+            where you are — all of it depends on a handful of tiny RF
+            components. This is their story.
           </p>
-          <p class="about-body">
-            RF Explorer was built to change that. Through real-world context, 
-            relatable analogies, real fabricated specimens and 3D electromagnetic 
-            simulations, we turn abstract physics into something you can actually 
-            see, feel and understand.
-          </p>
-          <a href="cards.html" class="btn-fill btn-fill--dark">Start exploring →</a>
-        </div>
-
-        <div class="about-right">
-          <div class="stat-tile st1">
-            <span class="st-num">8</span>
-            <span class="st-label">RF Components</span>
-          </div>
-          <div class="stat-tile st2">
-            <span class="st-num">5</span>
-            <span class="st-label">Story layers each</span>
-          </div>
-          <div class="stat-tile st3">
-            <span class="st-num">3D</span>
-            <span class="st-label">HFSS Simulations</span>
-          </div>
-          <div class="stat-tile st4">
-            <span class="st-icon">∞</span>
-            <span class="st-label">Curiosity sparked</span>
+          <div class="hero-btns anim-in" style="--d: 0.9s">
+            <a href="cards.html" class="btn-fill" id="btnStart"
+              >Start the story</a
+            >
+            <button class="btn-outline" id="btnDown">How it works ↓</button>
           </div>
         </div>
 
-      </div>
-    </section>
+        <div class="scroll-line anim-in" style="--d: 1.1s" aria-hidden="true">
+          <div class="scroll-line-bar"></div>
+        </div>
+      </section>
 
-  </div><div class="page-veil" id="pageVeil"></div>
+      <section class="hs hs-roadmap" id="secRoadmap" data-chapter="The Roadmap">
+        <div class="roadmap-wrap">
+          <div class="roadmap-head">
+            <span class="tag-label">How the journey works</span>
+            <h2 class="roadmap-title">
+              Five layers.<br /><em>One complete picture.</em>
+            </h2>
+          </div>
 
-  <script src="dataFetch.js"></script>
-  <script src="animations.js"></script>
-  <script src="main.js"></script>
-  
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('Service Worker registered'))
-          .catch(err => console.error('Service Worker failure', err));
-      });
-    }
-  </script>
-</body>
+          <div class="roadmap-track">
+            <svg
+              class="dotted-line"
+              viewBox="0 0 900 4"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <line
+                x1="0"
+                y1="2"
+                x2="900"
+                y2="2"
+                stroke="#111"
+                stroke-width="2"
+                stroke-dasharray="6 8"
+                class="path-draw"
+              />
+            </svg>
+
+            <div class="roadmap-nodes">
+              <div class="rnode" data-n="1" style="--nc: #ff6b6b">
+                <div class="rnode-bubble">
+                  <span class="rnode-num">01</span>
+                </div>
+                <div class="rnode-card">
+                  <div class="rnode-tile" style="background: #ff6b6b"></div>
+                  <h3>Real Life</h3>
+                  <p>Where does it actually live in the real world?</p>
+                </div>
+              </div>
+
+              <div class="rnode" data-n="2" style="--nc: #4ecdc4">
+                <div class="rnode-bubble">
+                  <span class="rnode-num">02</span>
+                </div>
+                <div class="rnode-card rnode-card--up">
+                  <div class="rnode-tile" style="background: #4ecdc4"></div>
+                  <h3>The Analogy</h3>
+                  <p>An everyday object that makes it click.</p>
+                </div>
+              </div>
+
+              <div class="rnode" data-n="3" style="--nc: #6c5ce7">
+                <div class="rnode-bubble">
+                  <span class="rnode-num">03</span>
+                </div>
+                <div class="rnode-card">
+                  <div class="rnode-tile" style="background: #6c5ce7"></div>
+                  <h3>Physical Form</h3>
+                  <p>The actual machined object, photographed.</p>
+                </div>
+              </div>
+
+              <div class="rnode" data-n="4" style="--nc: #f9ca24">
+                <div class="rnode-bubble">
+                  <span class="rnode-num">04</span>
+                </div>
+                <div class="rnode-card rnode-card--up">
+                  <div class="rnode-tile" style="background: #f9ca24"></div>
+                  <h3>3D Simulation</h3>
+                  <p>See the invisible electromagnetic fields inside.</p>
+                </div>
+              </div>
+
+              <div class="rnode rnode--final" data-n="5" style="--nc: #10ac84">
+                <div class="rnode-bubble">
+                  <span class="rnode-num">✓</span>
+                </div>
+                <div class="rnode-card">
+                  <div class="rnode-tile" style="background: #10ac84"></div>
+                  <h3>Curiosity unlocked</h3>
+                  <p>RF makes sense. The invisible world is yours.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-cta">
+            <a href="cards.html" class="btn-fill"
+              >Pick a component to explore</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="hs hs-about"
+        id="secAbout"
+        data-chapter="About the Initiative"
+      >
+        <div class="about-wrap">
+          <div class="about-left">
+            <span class="tag-label tag-label--light"
+              >About this initiative</span
+            >
+            <h2 class="about-title">
+              Making the<br />
+              <em>invisible</em> visible<br />
+              for the next generation.
+            </h2>
+            <p class="about-body">
+              RF components are the backbone of every modern communication
+              system — 5G networks, satellite navigation, radar, medical
+              imaging. Yet they stay completely hidden from the people who use
+              them most.
+            </p>
+            <p class="about-body">
+              RF Explorer was built to change that. Through real-world context,
+              relatable analogies, real fabricated specimens and 3D
+              electromagnetic simulations, we turn abstract physics into
+              something you can actually see, feel and understand.
+            </p>
+            <a href="cards.html" class="btn-fill btn-fill--dark"
+              >Start exploring →</a
+            >
+            <div class="socialMediaHandles">
+              <div class="socialMediaHandle btn-fill">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/ieee.mpmtts.sbcggvbsp?igsh=aHFqNmN4Y3NpbnRr"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-instagram"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                    />
+                  </svg>
+                  <span> Follow our journey ↗ </span>
+                </a>
+              </div>
+              <div class="socialMediaHandle btn-fill">
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/ieee-mtt-s-ggv-sb-chapter-india-7689133b1?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-linkedin"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                    />
+                  </svg>
+                  <span> Connect with us ↗ </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-right">
+            <div class="stat-tile st1">
+              <span class="st-num">8</span>
+              <span class="st-label">RF Components</span>
+            </div>
+            <div class="stat-tile st2">
+              <span class="st-num">5</span>
+              <span class="st-label">Story layers each</span>
+            </div>
+            <div class="stat-tile st3">
+              <span class="st-num">3D</span>
+              <span class="st-label">HFSS Simulations</span>
+            </div>
+            <div class="stat-tile st4">
+              <span class="st-icon">∞</span>
+              <span class="st-label">Curiosity sparked</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="page-veil" id="pageVeil"></div>
+
+    <script src="dataFetch.js"></script>
+    <script src="animations.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((reg) => console.log("Service Worker registered"))
+            .catch((err) => console.error("Service Worker failure", err));
+        });
+      }
+    </script>
+  </body>
 </html>
