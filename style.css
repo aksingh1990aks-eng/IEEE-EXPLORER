@@ -1049,11 +1049,8 @@ body.page-cards {
   border-bottom: 1px solid var(--border);
   max-width: 900px;
 }
-@media (max-width: 680px) {
-  .cards-hd {
-    padding: calc(var(--nav-h)+40px) 24px 40px;
-  }
-}
+
+
 
 .cards-hd-pre {
   font-size: 0.72rem;
